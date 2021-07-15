@@ -6,3 +6,59 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/* vamos criar um reset básico aqui */
+/* como os browser tem melhorado cada vez mais, não precisamos mais do normalize */
+* {
+    margin: 0;
+    padding: 0;
+    /* por padrao, os browser aplicam margin ou padding */
+    /* retiramos para começar mais "limpos" */
+    box-sizing: border-box;
+    /* muda o box model para que a borda e o padding não sejam adicionadas às dimensoes que especificamos a um elemento */
+}
+
+body {
+    /* as definicoes de fonte serao aplicadas no elemento body */
+    /* porque as definicoes de fonte geralmente sao herdadas */
+    /* usaremos o poder da heranca aqui */
+    /* é uma pratica melhor do que colocar no seletor universal */
+    font-family: 'Lato', sans-serif;
+    /* ja incluimos a fonte Lato no html (L07-Aindex.html)*/
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    /* a altura da linha sera 1.7 maior do que a altura de linha padrao */
+    color: #777;
+    /* vamos colocar um padding ao redor do body para deixar aquele efeito de respiro */
+    padding: 30px;
+}
+
+/* vamos comecar a editar o cabecalho, usando o seletor de classe .header */
+.header {
+    /* a altura do cabecalho sera de 95% do viewport do aparelho */
+    height: 95vh;
+    /* usando a propriedade background-image, especificamos o caminho da imagem que queremos de fundo dentro de url()
+    nao tem aspas dentro dos parenteses de url() */
+    /* para definir o gradient, tambem usamos a propriedade background-image. como ja usamos ela para setar a imagem, definiremos seu gradiente nela mesmo, usando uma virgula */
+    /* queremos que o gradiente esteja no topo, entao ele tem que ser o primeiro a ser definido. a imagem, queremos que esteja em baixo, entao tem que ser a ultima a ser definida */
+    /* para inserir o gradient, usaremos a irma da propriedade url, que eh a propriedade linear-gradient() */
+    /* podemos definir duas direcoes tambem para o linear gradient linear-gradient(to right bottom, ...) ficaria na diagonal */
+    background-image: 
+        linear-gradient(
+            to right bottom,
+            rgba(126, 213, 111, 0.8),
+            rgba(40, 180, 133, 0.8)), 
+         url(
+             ../img/hero.jpg);
+    /* a propriedade background-size:cover define que, independentemente do tamanho do viewport, a imagem de fundo sempre tentara se adaptar ao elemento  */
+    background-size: cover;
+    /* com o background-position:top definimos que independentemente do tamanho do viewport, o topo da imagem de fundo sempre sera mostrado no topo do container */
+    /* outros parametros: center, bottom, left, right */
+    background-position: top;
+
+    /* usando o clip-path com a propriedade polygon */
+    /* definimos as coordenadas dos vertices */
+    /* comeca no vertice superior da esquerda */
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+}
