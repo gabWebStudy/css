@@ -3,3 +3,12 @@ S2-A06 - Building the Header - Part 1
 - Implementar um reset básico usando o seletor universal
 - Setar definições de fonte para o projeto inteiro
 - Cortar partes de elementos usando o clip-path
+
+------------------------------------------------------------------
+
+M02-A06 - Building the Header - Part 2
+
+- Centralizar qualquer elemento usando as propriedades:
+	* transform
+	* top
+	* left

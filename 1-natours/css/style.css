@@ -7,58 +7,82 @@ Dark green: #28b485
 
 */
 
-/* vamos criar um reset básico aqui */
-/* como os browser tem melhorado cada vez mais, não precisamos mais do normalize */
 * {
     margin: 0;
     padding: 0;
-    /* por padrao, os browser aplicam margin ou padding */
-    /* retiramos para começar mais "limpos" */
     box-sizing: border-box;
-    /* muda o box model para que a borda e o padding não sejam adicionadas às dimensoes que especificamos a um elemento */
 }
 
 body {
-    /* as definicoes de fonte serao aplicadas no elemento body */
-    /* porque as definicoes de fonte geralmente sao herdadas */
-    /* usaremos o poder da heranca aqui */
-    /* é uma pratica melhor do que colocar no seletor universal */
     font-family: 'Lato', sans-serif;
-    /* ja incluimos a fonte Lato no html (L07-Aindex.html)*/
     font-weight: 400;
     font-size: 16px;
     line-height: 1.7;
-    /* a altura da linha sera 1.7 maior do que a altura de linha padrao */
     color: #777;
-    /* vamos colocar um padding ao redor do body para deixar aquele efeito de respiro */
     padding: 30px;
 }
 
-/* vamos comecar a editar o cabecalho, usando o seletor de classe .header */
 .header {
-    /* a altura do cabecalho sera de 95% do viewport do aparelho */
+    /* colocamos posicionamento relativo no header para poder ser referencia do logo-box */
+    position: relative;
     height: 95vh;
-    /* usando a propriedade background-image, especificamos o caminho da imagem que queremos de fundo dentro de url()
-    nao tem aspas dentro dos parenteses de url() */
-    /* para definir o gradient, tambem usamos a propriedade background-image. como ja usamos ela para setar a imagem, definiremos seu gradiente nela mesmo, usando uma virgula */
-    /* queremos que o gradiente esteja no topo, entao ele tem que ser o primeiro a ser definido. a imagem, queremos que esteja em baixo, entao tem que ser a ultima a ser definida */
-    /* para inserir o gradient, usaremos a irma da propriedade url, que eh a propriedade linear-gradient() */
-    /* podemos definir duas direcoes tambem para o linear gradient linear-gradient(to right bottom, ...) ficaria na diagonal */
-    background-image: 
+    background-image:
         linear-gradient(
             to right bottom,
             rgba(126, 213, 111, 0.8),
             rgba(40, 180, 133, 0.8)), 
          url(
              ../img/hero.jpg);
-    /* a propriedade background-size:cover define que, independentemente do tamanho do viewport, a imagem de fundo sempre tentara se adaptar ao elemento  */
     background-size: cover;
-    /* com o background-position:top definimos que independentemente do tamanho do viewport, o topo da imagem de fundo sempre sera mostrado no topo do container */
-    /* outros parametros: center, bottom, left, right */
     background-position: top;
-
-    /* usando o clip-path com a propriedade polygon */
-    /* definimos as coordenadas dos vertices */
-    /* comeca no vertice superior da esquerda */
     clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+}
+
+/* vamos estilizar a logo e o container que a abriga */
+.logo-box {
+    /* com posicionamento absoluto podemos usar as propriedades top, left, bottom e right para posicionar o elemento */
+    /* a referencia do posicionamento sera o elemento pai mais proximo com posicionamento setado para relative */
+    position: absolute;
+    top: 40px;
+    left: 40px; 
+}
+
+/* aqui vai o css do container que abriga o texto (aquele que usamos para nao confundir com o botao) */
+.text-box {
+    /* vamos primeiro centralizar o texto do cabecalho */
+    /* vamos definir um posicionamento em porcentagem, para que ele seja responsivo */
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    /* somente com isso, o cabecalho nao estara totalmente centralizado */
+    /* precisamos fazer ele retornar um pouco (metade do seu conteudo) nos eixos x e y para centralizar perfeitamente */
+    transform: translate(-50%, -50%);
+    /* os 50% do transform nao sao em referencia ao pai, mas sim ao elemento em si */
+}
+
+.logo {
+    height: 35px;
+    /* nao precisamos definir a largura. especificando a altura, a largura sera definida automaticamente */
+}
+
+/* vamos estilizar os cabecalhos */
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.heading-primary-main {
+    /* vamos setar o display pra block, pra quebrar linha. por natureza, o span eh um elemento inline */
+    /* um elemento em bloco ocupa 100% da linha, o que forca o conteudo seguinte a ir para a proxima */
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
 }

@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <!-- aqui incluimos a fonte lato -->
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
 
         <link rel="stylesheet" href="css/icon-font.css">
@@ -14,9 +13,23 @@
         <title>Natours | Exciting tours for adventurous people</title>
     </head>
     <body>
-        <!-- criamos o elemento do cabeçalho -->
         <header class="header">
-            Some text
+            <!-- area do logo -->
+            <div class="logo-box">
+                <!-- colocaremos um container na imagem para facilitar o posicionamento (imagem = inline) -->
+                <img src="img/logo-white.png" alt="Logo" class="logo">
+            </div>
+
+            <!-- como teremos um botao logo apos os cabecalhos, definimos uma div para o conteudo do texto nao se misturar com o botao -->
+            <div class="text-box">
+                <!-- area do cabecalho do header -->
+                <h1 class="heading-primary">
+                    <!-- usaremos o elemento span para dividir nosso cabecalho em duas partes -->
+                    <span class="heading-primary-main">Outdoors</span>
+                    <span class="heading-primary-sub">is where life happens</span>
+                </h1>
+            </div>
+            
         </header>
     </body>
 </html>
