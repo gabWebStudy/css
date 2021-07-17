@@ -12,3 +12,14 @@ M02-A06 - Building the Header - Part 2
 	* transform
 	* top
 	* left
+
+------------------------------------------------------------------
+
+M02-A06 - Creating Cool CSS Animations
+
+- Animando elementos usando
+	* keyframes
+	* animation-name
+	* animation-duration
+	* animation-iteration-count
+	* animation-timing-function
