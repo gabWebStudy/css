@@ -15,7 +15,7 @@ M02-A06 - Building the Header - Part 2
 
 ------------------------------------------------------------------
 
-M02-A06 - Creating Cool CSS Animations
+M02-A07 - Creating Cool CSS Animations
 
 - Animando elementos usando
 	* keyframes
@@ -23,3 +23,11 @@ M02-A06 - Creating Cool CSS Animations
 	* animation-duration
 	* animation-iteration-count
 	* animation-timing-function
+
+------------------------------------------------------------------
+
+A09 - Building a Complex Animated Button
+
+- O que são pseudo-elementos e pseudo-classes
+- Como e por que usar o pseudo-elemento ::after
+- Como criar uma animação hover usando a propriedade transition

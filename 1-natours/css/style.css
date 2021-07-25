@@ -48,6 +48,9 @@ body {
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
+    /* como o botao tem display inline-block, eh tratado como um texto */
+    /* entao, para alinhar o botao ao centro, basta vir no pai do elemento e definir text-align: center */
+    text-align: center;
 }
 
 .logo {
@@ -65,6 +68,8 @@ body {
     /* corrigindo imperfeicao na animacao */
     /* sempre no elemento pai de quem eh animado */
     backface-visibility: hidden;
+    /* adiciona respiro entre o botao e o titulo */
+    margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -122,4 +127,39 @@ body {
         opacity: 1;
         transform: translateX(0);
     }
+}
+
+/* pseudo-classes */
+/* pseudoclasses sao estados de um determinado elemento (quando o usuario passa o mouse sobre um elemento, quando o mouse está clicado, se vc quer selecionar o ultimo filho, etc) */
+/* we use pseudo-classes to style elements into determined conditions */
+/* kinds - :link, :visited, ... */
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    /* como o link eh uma ancora, ele tem display inline */
+    /* we need to make it have a inline-block display */
+    /* work as an inline element but we are able to change it's dimensions as if it was a block */
+    display: inline-block;
+    border-radius: 100px;
+    /* existem duas formas de lidar com animacoes: transition e keyframe */
+    transition: all .2s;
+    /* o transition tem que ser aplicado no elemento natural, nao na pseudoclasse */
+}
+
+/* cuidando das animacoes do botao*/
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
 }
