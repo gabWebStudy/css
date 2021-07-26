@@ -146,6 +146,7 @@ body {
     /* existem duas formas de lidar com animacoes: transition e keyframe */
     transition: all .2s;
     /* o transition tem que ser aplicado no elemento natural, nao na pseudoclasse */
+    position: relative; /* para servir de referencia para o pseudoelemento do botao */
 }
 
 /* cuidando das animacoes do botao*/
@@ -162,4 +163,64 @@ body {
 .btn-white {
     background-color: #fff;
     color: #777;
+}
+
+/* pseudoelements allow to style certain parts of elements */
+/* after -> adds a virtual element right after the element we're styling */
+
+/* vamos fazer a animacao desse jeito: vai ter um pseudo elemento identico ao elemento do botao em baixo dele */
+/* quando passarmos o mouse sobre o botao original, o pseudoelemento expande e fica transparente */
+
+.btn::after {
+    /* sempre precisamos especificar o conteudo do elemento after */
+    content: '';
+    display: inline-block;
+    height: 100%; /* em relacao ao botao original */
+    /* o after eh tratado como um filho do botao original */
+    width: 100%;
+    border-radius: 100px;
+    /* para aparecer exatamente em baixo do outro botao */
+    position: absolute; 
+    top: 0;
+    left: 0;
+    z-index: -1;
+    /* o transtition eh sempre aplicado no estado inicial */
+    transition: all .4s;
+}
+
+/* vamos criar outro pseudo-elemento para o btn .btn-white */
+
+.btn-white::after {
+    background-color: white;
+    /* para estilizar a cor do botao de baixo */
+}
+
+/* o que vai acontecer com o botao de baixo quando passarmos o mouse sobre o botao de cima */
+
+.btn:hover::after {
+    /* this is an after only when the btn is hover */
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+/* animacao para que o botao parta de baixo pra cima */
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* queremos que a animacao aconteca apenas neste botao em particular */
+/* vamos criar uma classe no html para que essa animacao seja aplicada neste botao */
+
+.btn-animated {
+    animation: moveInBottom .5s ease-out .75s; /* em oredem: animation name, animation duration, animation timing function e animation delay */
+    animation-fill-mode: backwards; /* automaticamente aplica o estilo do 0% antes da animacao comecar */
 }

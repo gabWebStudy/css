@@ -31,3 +31,11 @@ A09 - Building a Complex Animated Button
 - O que são pseudo-elementos e pseudo-classes
 - Como e por que usar o pseudo-elemento ::after
 - Como criar uma animação hover usando a propriedade transition
+
+------------------------------------------------------------------
+
+A10 - Building a Complex Animated Button - Part 2
+
+- O que são pseudo-elementos e pseudo-classes
+- Como e por que usar o pseudo-elemento ::after
+- Como criar uma animação hover usando a propriedade transition
